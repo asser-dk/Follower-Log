@@ -4,7 +4,7 @@ function listenForNewHitboxFollowers(channelName, newFollowerCallback)
 
     function getFollowers(channelName, offset, limit, followers, newFollowerCallback)
     {
-        $.getJSON('https://api.hitbox.tv/followers/user/' + encodeURIComponent(channelName) + '?offset=' + offset + '&limit=' + limit, function (data)
+        $.getJSON('https://api.hitbox.tv/followers/user/' + encodeURIComponent(channelName) + '?offset=' + offset + '&limit=' + limit+ '&reverse=true', function (data)
         {
             if (data.followers.length > 0)
             {
@@ -31,20 +31,14 @@ function listenForNewHitboxFollowers(channelName, newFollowerCallback)
 
     function checkForNewFollowers(channelName, followers, limit, newFollowerCallback)
     {
-        var offset = 0;
-        if (followers.length > limit / 2)
-        {
-            offset = Math.floor(followers.length / limit) - limit / 2;
-        }
-
-        $.getJSON('https://api.hitbox.tv/followers/user/' + encodeURIComponent(channelName) + '?offset=' + offset + '&limit=' + limit, function (data)
+        $.getJSON('https://api.hitbox.tv/followers/user/' + encodeURIComponent(channelName) + '?reverse=true&offset=0&limit=' + limit, function (data)
         {
             console.log('[Hitbox] Checking for new follows.');
             if (data.followers.length > 0)
             {
                 var newFollower;
 
-                for(var i = 0; i < data.followers.length; i++)
+                for (var i = 0; i < data.followers.length; i++)
                 {
                     var follower = data.followers[i];
 
