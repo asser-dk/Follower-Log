@@ -1,0 +1,27 @@
+{
+  "name": "Follower-Log",
+  "version": "1.0.0",
+  "description": "Follower log for both Twitch and Hitbox",
+  "main": "App/index.html",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asser-dk/Follower-Log.git"
+  },
+  "keywords": [
+    "Twitch",
+    "Hitbox",
+    "Asser",
+    "SexyFishHorse",
+    "Follower",
+    "log"
+  ],
+  "author": "SexyFishHorse",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/asser-dk/Follower-Log/issues"
+  },
+  "homepage": "https://github.com/asser-dk/Follower-Log"
+}
