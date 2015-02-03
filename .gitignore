@@ -79,3 +79,5 @@ build/Release
 node_modules
 
 App/components
+
+*.css
