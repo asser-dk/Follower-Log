@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/asser-dk/Follower-Log/issues"
   },
-  "homepage": "https://github.com/asser-dk/Follower-Log"
+  "homepage": "https://github.com/asser-dk/Follower-Log",
+  "dependencies": {
+    "bower": "^1.3.12"
+  }
 }
