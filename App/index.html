@@ -10,8 +10,48 @@
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="components/foundation/js/vendor/modernizr.js"></script>
     <script src="components/foundation/js/foundation.min.js"></script>
+    <script src="components/foundation/js/foundation/foundation.topbar.js"></script>
     <script src="scripts/url-utils.js"></script>
 </head>
 <body>
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="http://sexyfishhorse.com" target="_blank">SexyFishHorse.com</a></h1>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+        <ul class="left">
+            <li>
+                <a href="#">Twitch+Hitbox follower log</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="#" data-reveal-id="about-modal"><i class="fa fa-question-circle"></i> About</a>
+            </li>
+        </ul>
+        <ul class="right">
+            <li>
+                <a href="https://github.com/asser-dk/Follower-Log" target="_blank"><i class="fa fa-github"></i> Source
+                    at GitHub</a>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+                <a href="#" class="launch-follower-log"><i class="fa fa-rocket"></i> Launch</a>
+                <ul class="dropdown">
+                    <li><a href="#" data-reveal-id="configuration-modal"><i class="fa fa-cog"></i> Configure</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</nav>
+<script>
+    $(function ()
+    {
+        $(document).foundation();
+        }
+    })
+</script>
 </body>
 </html>
