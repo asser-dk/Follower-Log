@@ -110,7 +110,9 @@
         var twitchChannelName = localStorage.twitchChannelName;
         var hitboxChannelName = localStorage.hitboxChannelName;
 
-        $('.large-launch-button').hide();
+        var largeLaunchButton = $('.large-launch-button');
+
+        largeLaunchButton.hide();
         $('#twitchChannelName').val(twitchChannelName);
         $('#hitboxChannelName').val(hitboxChannelName);
 
@@ -132,20 +134,29 @@
             }
         });
 
-        setTimeout(function ()
+        if(getUrlParameterValue('configuration'))
         {
-            newFollower({user: 'S3xyFishHorse', provider: 'Twitch'})
-        }, 1000);
-        setTimeout(function ()
+            $('#configuration-modal').foundation('reveal', 'open');
+            $('#follower-log').hide();
+            largeLaunchButton.show();
+        }else
         {
-            newFollower({user: 'SexyFishHorse', provider: 'Hitbox'})
-        }, 3000);
 
-        setTimeout(function ()
-        {
-            $('#follower-log').fadeOut().next().delay(1000).fadeIn(1000);
+            setTimeout(function ()
+            {
+                newFollower({user: 'S3xyFishHorse', provider: 'Twitch'})
+            }, 1000);
+            setTimeout(function ()
+            {
+                newFollower({user: 'SexyFishHorse', provider: 'Hitbox'})
+            }, 3000);
 
-        }, 6000);
+            setTimeout(function ()
+            {
+                $('#follower-log').fadeOut().next().delay(1000).fadeIn(1000);
+
+            }, 6000);
+        }
 
         function updateVariablesFromLocalStorage()
         {
