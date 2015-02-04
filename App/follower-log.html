@@ -11,6 +11,8 @@
     <script src="components/foundation/js/foundation.min.js"></script>
     <script src="components/moment/min/moment-with-locales.min.js"></script>
     <script src="scripts/url-utils.js"></script>
+    <script src="scripts/hitbox-follower-api-client.js"></script>
+    <script src="scripts/twitch-follower-api-client.js"></script>
 </head>
 <body>
 <div id="follower-log" class="">
@@ -26,6 +28,21 @@
     $(function ()
     {
         $(document).foundation();
+
+        var twitchChannelName = getUrlParameterValue('twitchChannelName');
+        var hitboxChannelName = getUrlParameterValue('hitboxChannelName');
+
+        listenForNewTwitchFollowers(twitchChannelName, newFollower);
+        listenForNewHitboxFollowers(hitboxChannelName, newFollower);
+
+        function newFollower(follower)
+        {
+            $('<div class="row fullWidth entry entry' + follower.provider + '">' +
+            '<div class="columns small-3 large-2 provider">' + follower.provider + '</div>' +
+            '<div class="columns small-4 large-2 date">' + moment().format('LTS') + '</div>' +
+            '<div class="columns small-5 large-8 username">' + follower.user + '</div>' +
+            '</div>').hide().prependTo('#follower-log #list').slideDown('slow');
+        }
     });
 </script>
 </body>
