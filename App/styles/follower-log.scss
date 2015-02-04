@@ -1,0 +1,35 @@
+$hitbox-colour: rgba(172, 230, 0, 0.5);
+$twitch-colour: rgba(100, 65, 165, 0.5);
+
+#follower-log {
+
+    background-color: #313131;
+    width: 100%;
+    height: 100vh;
+    line-height: 40px;
+    color: #ffffff;
+    vertical-align: middle;
+
+    .headers {
+        .header {
+            height: 40px;
+            background-color: #222222;
+            font-weight: bold;
+        }
+    }
+
+    #list {
+
+        .entry {
+            height: 40px;
+        }
+
+        .entryTwitch {
+            background-color: $twitch-colour;
+        }
+
+        .entryHitbox {
+            background-color: $hitbox-colour;
+        }
+    }
+}
