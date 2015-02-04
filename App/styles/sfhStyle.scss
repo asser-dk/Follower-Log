@@ -1,4 +1,9 @@
-.fullWidth {
+$theme-colour-gradient-dark: #d30000;
+$theme-colour-gradient-light: #e00000;
+$theme-border-colour: #aa0000;
+$shadow-colour: #999999;
+
+.row {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -7,4 +12,25 @@
 
 .reveal-modal {
     overflow-y: auto;
+}
+
+.top-bar {
+    background: linear-gradient(to top, $theme-colour-gradient-dark, $theme-colour-gradient-light);
+    box-shadow: 0 0 1px 1px $shadow-colour;
+    padding: 0 5px;
+
+    li, li a:not(.button) {
+        background-color: transparent !important;
+    }
+
+    .dropdown {
+        background-color: $theme-colour-gradient-light;
+        box-shadow: 0 2px 1px 1px $shadow-colour;
+    }
+
+    .divider
+    {
+        border-right: solid 1px $theme-border-colour !important;
+        background: $theme-border-colour;
+    }
 }
