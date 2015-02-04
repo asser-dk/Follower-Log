@@ -1,4 +1,9 @@
-.fullWidth {
+$theme-colour: #d30000;
+$theme-colour-gradient: #e00000;
+$theme-colour-border: #aa0000;
+$shadow-colour: #999999;
+
+.row {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -7,4 +12,39 @@
 
 .reveal-modal {
     overflow-y: auto;
+}
+
+.button {
+    background-color: #d30000;
+    box-shadow: 0 2px 1px 1px $shadow-colour;
+}
+
+.top-bar {
+    background: linear-gradient(to top, $theme-colour, $theme-colour-gradient);
+    box-shadow: 0 0 1px 1px $shadow-colour;
+    padding: 0 5px;
+
+    li, li a:not(.button) {
+        background-color: transparent !important;
+    }
+
+    .dropdown {
+        background-color: $theme-colour-gradient;
+        box-shadow: 0 2px 1px 1px $shadow-colour;
+    }
+
+    .divider
+    {
+        border-right: solid 1px $theme-colour-border !important;
+        background: $theme-colour-border;
+    }
+}
+
+.large-launch-button {
+    margin: auto;
+    width: 200px;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
 }
