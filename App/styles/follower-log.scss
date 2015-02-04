@@ -22,6 +22,7 @@ $twitch-colour: rgba(100, 65, 165, 0.5);
 
         .entry {
             height: 40px;
+            overflow: hidden;
         }
 
         .entryTwitch {
