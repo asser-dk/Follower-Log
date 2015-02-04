@@ -13,10 +13,20 @@
     <script src="scripts/url-utils.js"></script>
 </head>
 <body>
-    <script>
-        $(function(){
-           $(document).foundation();
-        });
-    </script>
+<div id="follower-log" class="">
+    <div class="row fullWidth headers">
+        <div class="column small-3 large-2 header provider">Provider</div>
+        <div class="column small-4 large-2 header date">Date</div>
+        <div class="column small-5 large-8 header username">Username</div>
+    </div>
+    <div id="list">
+    </div>
+</div>
+<script>
+    $(function ()
+    {
+        $(document).foundation();
+    });
+</script>
 </body>
 </html>
