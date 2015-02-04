@@ -6,13 +6,16 @@
     <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="components/foundation/css/foundation.css"/>
     <link rel="stylesheet" href="styles/sfhStyle.css"/>
+    <link rel="stylesheet" href="styles/follower-log.css"/>
     <link rel="stylesheet" href="styles/style.css"/>
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="components/foundation/js/vendor/modernizr.js"></script>
     <script src="components/foundation/js/foundation.min.js"></script>
     <script src="components/foundation/js/foundation/foundation.reveal.js"></script>
     <script src="components/foundation/js/foundation/foundation.topbar.js"></script>
+    <script src="components/moment/min/moment-with-locales.min.js"></script>
     <script src="scripts/url-utils.js"></script>
+    <script src="scripts/follower-log.js"></script>
     <script src="scripts/index.js"></script>
 </head>
 <body>
@@ -48,7 +51,38 @@
         </ul>
     </section>
 </nav>
+
+<div id="follower-log">
+    <div class="row headers">
+        <div class="column small-3 large-2 header provider">Provider</div>
+        <div class="column small-4 large-2 header date">Date</div>
+        <div class="column small-5 large-8 header username">Username</div>
+    </div>
+    <div id="list">
+    </div>
+</div>
 <a href="#" class="large button launch-follower-log large-launch-button"><i class="fa fa-rocket"></i> Launch</a>
+
+<div class="reveal-modal" id="about-modal" data-reveal>
+    <h2>About</h2>
+
+    <p class="lead">Missed your follower alert? Want to say thanks to your new follower? Here, have a log.</p>
+
+    <p>My channel is still fairly small so I want to say thanks to every new follower I get. Sometimes during a game I
+        might be unable to see who followed so I made this log instead so I could say thanks later. It supports both
+        Twitch and Hitbox.</p>
+
+    <p>Enter your channel names in the <a href="#" data-reveal-id="configuration-modal"><i class="fa fa-cog"></i>
+        Configuration window</a> and <a href="#" class="launch-follower-log"><i class="fa fa-rocket"></i> Launch</a> the
+        log. Your browser will remember the channel
+        names for the next time you launch it so you don't have to configure it over and over again.</p>
+
+    <p>If you have any feedback/bug reports/feature requests then go do <a
+            href="http://github.com/asser-dk/Follower-Log/issues" target="_blank"><i class="fa fa-github"></i>
+        GitHub</a> and create an
+        issue and I will have a look.</p>
+    <i class="close-reveal-modal fa fa-close"></i>
+</div>
 <div class="reveal-modal" id="configuration-modal" data-reveal>
     <h2>Configuration</h2>
 
@@ -97,6 +131,21 @@
                 launchFollowerLog(twitchChannelName, hitboxChannelName);
             }
         });
+
+        setTimeout(function ()
+        {
+            newFollower({user: 'S3xyFishHorse', provider: 'Twitch'})
+        }, 1000);
+        setTimeout(function ()
+        {
+            newFollower({user: 'SexyFishHorse', provider: 'Hitbox'})
+        }, 3000);
+
+        setTimeout(function ()
+        {
+            $('#follower-log').fadeOut().next().delay(1000).fadeIn(1000);
+
+        }, 6000);
 
         function updateVariablesFromLocalStorage()
         {
