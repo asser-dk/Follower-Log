@@ -1,6 +1,6 @@
-$theme-colour-gradient-dark: #d30000;
-$theme-colour-gradient-light: #e00000;
-$theme-border-colour: #aa0000;
+$theme-colour: #d30000;
+$theme-colour-gradient: #e00000;
+$theme-colour-border: #aa0000;
 $shadow-colour: #999999;
 
 .row {
@@ -14,8 +14,13 @@ $shadow-colour: #999999;
     overflow-y: auto;
 }
 
+.button {
+    background-color: #d30000;
+    box-shadow: 0 2px 1px 1px $shadow-colour;
+}
+
 .top-bar {
-    background: linear-gradient(to top, $theme-colour-gradient-dark, $theme-colour-gradient-light);
+    background: linear-gradient(to top, $theme-colour, $theme-colour-gradient);
     box-shadow: 0 0 1px 1px $shadow-colour;
     padding: 0 5px;
 
@@ -24,13 +29,13 @@ $shadow-colour: #999999;
     }
 
     .dropdown {
-        background-color: $theme-colour-gradient-light;
+        background-color: $theme-colour-gradient;
         box-shadow: 0 2px 1px 1px $shadow-colour;
     }
 
     .divider
     {
-        border-right: solid 1px $theme-border-colour !important;
-        background: $theme-border-colour;
+        border-right: solid 1px $theme-colour-border !important;
+        background: $theme-colour-border;
     }
 }
