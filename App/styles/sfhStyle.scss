@@ -39,3 +39,12 @@ $shadow-colour: #999999;
         background: $theme-colour-border;
     }
 }
+
+.large-launch-button {
+    margin: auto;
+    width: 200px;
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}

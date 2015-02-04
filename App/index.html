@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>SexyFishHorse Follower log</title>
     <link rel="stylesheet" href="components/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="components/foundation/css/foundation.css"/>
     <link rel="stylesheet" href="styles/sfhStyle.css"/>
@@ -10,8 +10,10 @@
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="components/foundation/js/vendor/modernizr.js"></script>
     <script src="components/foundation/js/foundation.min.js"></script>
+    <script src="components/foundation/js/foundation/foundation.reveal.js"></script>
     <script src="components/foundation/js/foundation/foundation.topbar.js"></script>
     <script src="scripts/url-utils.js"></script>
+    <script src="scripts/index.js"></script>
 </head>
 <body>
 <nav class="top-bar" data-topbar role="navigation">
@@ -46,10 +48,60 @@
         </ul>
     </section>
 </nav>
+<a href="#" class="large button launch-follower-log large-launch-button"><i class="fa fa-rocket"></i> Launch</a>
+<div class="reveal-modal" id="configuration-modal" data-reveal>
+    <h2>Configuration</h2>
+
+    <p>The settings you enter here will be stored on your pc so you can start the follower log instantly the next time
+        you visit this site.</p>
+
+    <div class="row">
+        <label>Twitch channel name
+            <input type="text" id="twitchChannelName" class="stored" name="twitchChannelName"/></label>
+    </div>
+    <div class="row">
+        <label>Hitbox channel name
+            <input type="text" id="hitboxChannelName" class="stored" name="hitboxChannelName"/></label>
+    </div>
+    <div class="row">
+        <a href="#" class="launch-follower-log button">Launch</a>
+    </div>
+    <i class="close-reveal-modal fa fa-close"></i>
+</div>
 <script>
     $(function ()
     {
         $(document).foundation();
+
+        var twitchChannelName = localStorage.twitchChannelName;
+        var hitboxChannelName = localStorage.hitboxChannelName;
+
+        $('.large-launch-button').hide();
+        $('#twitchChannelName').val(twitchChannelName);
+        $('#hitboxChannelName').val(hitboxChannelName);
+
+        $('.stored').change(function (args)
+        {
+            localStorage[args.currentTarget.name] = args.currentTarget.value;
+        });
+
+        $('.launch-follower-log').click(function ()
+        {
+            updateVariablesFromLocalStorage();
+
+            if (!twitchChannelName && !hitboxChannelName)
+            {
+                $('#configuration-modal').foundation('reveal', 'open');
+            } else
+            {
+                launchFollowerLog(twitchChannelName, hitboxChannelName);
+            }
+        });
+
+        function updateVariablesFromLocalStorage()
+        {
+            twitchChannelName = localStorage.twitchChannelName;
+            hitboxChannelName = localStorage.hitboxChannelName;
         }
     })
 </script>
