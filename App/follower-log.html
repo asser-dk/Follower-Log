@@ -3,9 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>SexyFishHorse Follower log</title>
-    <link rel="stylesheet" href="components/foundation/css/foundation.css"/>
-    <link rel="stylesheet" href="styles/sfhStyle.css" />
-    <link rel="stylesheet" href="styles/follower-log.css" />
+    <link rel="stylesheet" href="styles/follower-log.css"/>
     <script src="components/jquery/dist/jquery.min.js"></script>
     <script src="components/foundation/js/vendor/modernizr.js"></script>
     <script src="components/foundation/js/foundation.min.js"></script>
@@ -30,8 +28,16 @@
     {
         $(document).foundation();
 
-        var twitchChannelName = getUrlParameterValue('twitchChannelName');
-        var hitboxChannelName = getUrlParameterValue('hitboxChannelName');
+        var urlTwitch = getUrlParameterValue('twitchChannelName');
+        var urlHitbox = getUrlParameterValue('hitboxChannelName');
+
+        var twitchChannelName = !urlTwitch ? localStorage.twitchChannelName : urlTwitch;
+        var hitboxChannelName = !urlHitbox ? localStorage.hitboxChannelName : urlHitbox;
+
+        if (!twitchChannelName && !hitboxChannelName)
+        {
+            window.location.href = 'index.html?configuration';
+        }
 
         listenForNewTwitchFollowers(twitchChannelName, newFollower);
         listenForNewHitboxFollowers(hitboxChannelName, newFollower);
