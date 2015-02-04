@@ -30,8 +30,16 @@
     {
         $(document).foundation();
 
-        var twitchChannelName = getUrlParameterValue('twitchChannelName');
-        var hitboxChannelName = getUrlParameterValue('hitboxChannelName');
+        var urlTwitch = getUrlParameterValue('twitchChannelName');
+        var urlHitbox = getUrlParameterValue('hitboxChannelName');
+
+        var twitchChannelName = !urlTwitch ? localStorage.twitchChannelName : urlTwitch;
+        var hitboxChannelName = !urlHitbox ? localStorage.hitboxChannelName : urlHitbox;
+
+        if (!twitchChannelName && !hitboxChannelName)
+        {
+            window.location.href = 'index.html?configuration';
+        }
 
         listenForNewTwitchFollowers(twitchChannelName, newFollower);
         listenForNewHitboxFollowers(hitboxChannelName, newFollower);
