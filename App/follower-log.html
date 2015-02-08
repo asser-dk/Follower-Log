@@ -17,7 +17,7 @@
 <div id="follower-log">
     <div class="row headers">
         <div class="column small-3 large-2 header provider">Provider</div>
-        <div class="column small-4 large-2 header date">Date</div>
+        <div class="column small-4 large-2 header date">Time</div>
         <div class="column small-5 large-8 header username">Username</div>
     </div>
     <div id="list">
@@ -27,6 +27,7 @@
     $(function ()
     {
         $(document).foundation();
+        moment.locale(navigator.language);
 
         var urlTwitch = getUrlParameterValue('twitchChannelName');
         var urlHitbox = getUrlParameterValue('hitboxChannelName');
