@@ -27,7 +27,6 @@ $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-fac
 
 .button {
     background-color: $primary-color;
-    box-shadow: 0 2px 1px 1px $shadow-colour;
 }
 
 .button:hover
